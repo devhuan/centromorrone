@@ -1,0 +1,52 @@
+[09-Mar-2023 18:55:57 UTC] PHP Fatal error:  Uncaught Error: Class 'cleanto_myvariable' not found in /home/customer/www/prenota.centromorrone.it/public_html/index.php:50
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/index.php on line 50
+[09-Mar-2023 18:57:02 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:03:12 UTC] PHP Fatal error:  Uncaught TypeError: chr(): Argument #1 ($codepoint) must be of type int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php:12
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/header.php(12): chr('')
+#1 /home/customer/www/prenota.centromorrone.it/public_html/index_one_step.php(38): include('/home/customer/...')
+#2 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:04:00 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:22:24 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:27:12 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:32:19 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:32:21 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:32:22 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:32:22 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:32:23 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:32:23 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:32:24 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:32:24 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:32:25 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:44:21 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:44:28 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:44:30 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:46:50 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:48:19 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:49:08 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:49:32 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:51:29 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:51:41 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:52:11 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:52:26 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:18:59 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:31:19 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:31:51 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:32:21 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:35:36 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:35:37 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:35:37 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:38:12 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:40:48 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:42:04 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:43:46 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:44:35 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:45:05 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:45:49 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[19-Apr-2023 21:57:00 UTC] PHP Fatal error:  Uncaught Error: Class 'cleanto_db' not found in /home/customer/www/prenota.centromorrone.it/public_html/cerca.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/cerca.php on line 9

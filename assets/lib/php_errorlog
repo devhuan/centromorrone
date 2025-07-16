@@ -1,0 +1,163 @@
+[09-Mar-2023 19:11:14 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 19:11:28 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[09-Mar-2023 20:35:50 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 00:06:59 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 05:16:21 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:23 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:24 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:24 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:24 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:25 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:26 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:26 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:26 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:26 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[10-Mar-2023 14:03:28 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[23-Apr-2023 07:48:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method stdClass::getdataby_serviceid() in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/cerca.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/cerca.php on line 31
+[23-Apr-2023 07:48:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method stdClass::getdataby_serviceid() in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/cerca.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/cerca.php on line 31
+[26-Apr-2023 09:52:37 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_ajax.php on line 654 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_ajax.php(654): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-01', '60', '1', 0, 'No', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[26-Apr-2023 09:52:37 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_ajax.php on line 654 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_ajax.php(654): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-01', '60', '1', 0, 'No', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 09:17:01 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[27-Apr-2023 09:17:48 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[27-Apr-2023 10:15:00 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[27-Apr-2023 10:37:55 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1001', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 10:45:31 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[27-Apr-2023 10:50:44 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[27-Apr-2023 10:51:11 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[27-Apr-2023 10:51:22 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Undefined index: appointment_id in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 60
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 138
+[27-Apr-2023 10:51:22 UTC] PHP Warning:  Illegal string offset 'notes' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 223
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 223
+[27-Apr-2023 10:51:22 UTC] PHP Warning:  Illegal string offset 'vc_status' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 228
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 228
+[27-Apr-2023 10:51:22 UTC] PHP Warning:  Illegal string offset 'p_status' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 238
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 238
+[27-Apr-2023 10:51:22 UTC] PHP Warning:  Illegal string offset 'address' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:22 UTC] PHP Warning:  Illegal string offset 'city' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:22 UTC] PHP Warning:  Illegal string offset 'zip' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:22 UTC] PHP Warning:  Illegal string offset 'state' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 267
+[27-Apr-2023 10:51:22 UTC] PHP Warning:  Illegal string offset 'contact_status' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 280
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 280
+[27-Apr-2023 10:51:22 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 283
+[27-Apr-2023 10:51:36 UTC] PHP Warning:  chr() expects parameter 1 to be int, string given in /home/customer/www/prenota.centromorrone.it/public_html/header.php on line 12
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Undefined index: appointment_id in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 60
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 138
+[27-Apr-2023 10:51:36 UTC] PHP Warning:  Illegal string offset 'notes' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 223
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 223
+[27-Apr-2023 10:51:36 UTC] PHP Warning:  Illegal string offset 'vc_status' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 228
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 228
+[27-Apr-2023 10:51:36 UTC] PHP Warning:  Illegal string offset 'p_status' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 238
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 238
+[27-Apr-2023 10:51:36 UTC] PHP Warning:  Illegal string offset 'address' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:36 UTC] PHP Warning:  Illegal string offset 'city' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:36 UTC] PHP Warning:  Illegal string offset 'zip' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:36 UTC] PHP Warning:  Illegal string offset 'state' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 248
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 267
+[27-Apr-2023 10:51:36 UTC] PHP Warning:  Illegal string offset 'contact_status' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 280
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 280
+[27-Apr-2023 10:51:36 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 283
+[27-Apr-2023 18:54:34 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1001', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 19:29:11 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1000', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 19:29:21 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1000', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 19:29:25 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1000', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 19:29:54 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1000', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 20:16:37 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1000', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 21:28:04 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1000', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 21:34:31 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1000', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[27-Apr-2023 21:38:02 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1000', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[28-Apr-2023 19:49:41 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-04-28', '60', '1', '1000', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[02-May-2023 09:17:38 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-05-12', '60', '1', '1001', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[02-May-2023 09:18:22 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-05-12', '60', '1', '1001', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[02-May-2023 09:18:41 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/user_details_ajax.php on line 289 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/user_details_ajax.php(289): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-05-13', '60', '1', 0, 'No', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[07-May-2023 12:31:44 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function cleanto_first_step::get_day_time_slot_by_provider_id(), 11 passed in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 3856 and exactly 12 expected in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php:472
+Stack trace:
+#0 /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php(3856): cleanto_first_step->get_day_time_slot_by_provider_id('weekly', '2023-05-12', '60', '1', '1001', 'Yes', '60', '', '', 2, '')
+#1 {main}
+  thrown in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_front_first_step.php on line 472
+[19-Jun-2023 20:54:58 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/customer/www/prenota.centromorrone.it/public_html/objects/class_dayweek_avail.php on line 242
+[02-Oct-2023 18:08:50 UTC] PHP Parse error:  syntax error, unexpected 'kkk' (T_STRING) in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 256
+[02-Oct-2023 18:27:09 UTC] PHP Parse error:  syntax error, unexpected 'test' (T_STRING) in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 266
+[02-Oct-2023 18:31:35 UTC] PHP Parse error:  syntax error, unexpected '>' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 266
+[02-Oct-2023 18:33:08 UTC] PHP Parse error:  syntax error, unexpected '>' in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 267
+[02-Oct-2023 18:33:29 UTC] PHP Parse error:  syntax error, unexpected 'CODICE' (T_STRING) in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/calendar_appointment_details.php on line 267
+[20-Oct-2023 22:11:41 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/customer/www/prenota.centromorrone.it/public_html/assets/lib/my_appoint_ajax.php on line 208
