@@ -304,6 +304,7 @@ if(isset($_SESSION["ct_details"]) && $_SESSION["ct_details"]!=""){
     $rec_id = $last_recurring_id+1;
   }
   $booking_date_time = date("Y-m-d H:i:s", strtotime($_SESSION["ct_details"]["booking_date_time"]));
+  $file_upload = $_SESSION["ct_details"]["file_upload"];
 
   if($staff_id == "" && $_SESSION["staff_id_cal"] != ""){
     $provider_sec = $_SESSION["provider_sec"];
@@ -469,6 +470,7 @@ if(isset($_SESSION["ct_details"]) && $_SESSION["ct_details"]!=""){
             $booking->client_id=$client_id;
             $booking->order_date=$current_time;
             $booking->booking_date_time=$booking_date_time;
+            $booking->booking_file=$file_upload;
 			//$booking->booking_date_time_end=$booking_date_time_end;																								 
             $booking->method_id=$_SESSION["ct_cart"]["method"][$i]["method_id"];
             $booking->method_unit_id=$_SESSION["ct_cart"]["method"][$i]["units_id"];
@@ -553,6 +555,7 @@ if(isset($_SESSION["ct_details"]) && $_SESSION["ct_details"]!=""){
           $booking->client_id=$client_id;
           $booking->order_date=$current_time;
           $booking->booking_date_time=$booking_date_time;
+          $booking->booking_file=$file_upload;
           $booking->method_id=$_SESSION["ct_cart"]["method"][$i]["method_id"];
           $booking->method_unit_id=$_SESSION["ct_cart"]["method"][$i]["units_id"];
           $booking->method_unit_qty=$_SESSION["ct_cart"]["method"][$i]["s_m_qty"];

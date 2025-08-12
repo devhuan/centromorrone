@@ -2452,10 +2452,25 @@ jQuery(document).on("click", ".edtservicebtn", function () {
     if (!jQuery("#editform_service" + i).valid()) {
         return false;
     }
+    var formData = new FormData();
+    var fileInput = $('#file')[0];
+    if (fileInput.files.length > 0) {
+        formData.append('file', fileInput.files[0]);
+    }
+    formData.append('id', i);
+    formData.append('color', color);
+    formData.append('title', title);
+    formData.append('description', desc);
+    formData.append('image', image);
+    formData.append('operationedit', 1);
+    formData.append('status', 'D');
+    formData.append('position', 0);
     jQuery(".ct-loading-main").show();
     jQuery.ajax({
         type: "post",
-        data: {"id": i, "color": color, "title": title, "description": desc, "image": image, "operationedit": 1, "status": "D", "position": 0},
+        data: formData,
+        contentType: false,
+        processData: false,
         url: ajax_url + "service_ajax.php",
         success: function (res) {
             jQuery(".mainheader_message").show();
@@ -2497,6 +2512,23 @@ jQuery(document).on("click", ".design_radio_btn", function () {
         data: {"designid": mydesignid, "divname": mydivname, "assigndesign": 1},
         url: ajax_url + "service_ajax.php",
         success: function (res) {}
+    });
+});
+
+jQuery(document).on("click", ".exportservicebtn", function () {
+    var id = jQuery(this).attr("data-id");
+    jQuery.ajax({
+        type: "post",
+        dataType: 'json',
+        data: { id: id, action: 'export'},
+        url: ajax_url + "addons_ajax.php",
+        success: function (res) {
+            if (res.success) {
+                window.location.href = res.download_url;
+            } else {
+                alert('Export error');
+            }
+        }
     });
 });
 /* ASSIGN METHOD TO SERVICE PAGE SERVICE METHODS PAGE */
@@ -3212,7 +3244,7 @@ jQuery(document).on("click", ".btneditaddon_service", function () {
     }
     jQuery.ajax({
         type: "post",
-        data: {"id": jQuery(this).attr("data-id"), "addon_service_name": jQuery(".txtedtaddon_title" + edtid).val(), "addon_hours": addon_hours, "addon_mints": addon_mints, "base_price": jQuery(".txtedtaddon_baseprice" + edtid).val(), "maxqty": jQuery(".txtedtaddon_maxqty" + edtid).val(), "image": image, "predefineimage": predefineimage, "predefineimage_title": predefine_image_title, "addon_service_description": jQuery(".myedtaddon_titlenamedesc" + edtid).val(), "tags": jQuery(".myedtaddon_tags" + edtid).val(), "operationedit": 1},
+        data: {"id": jQuery(this).attr("data-id"), "addon_service_name": jQuery(".txtedtaddon_title" + edtid).val(), "addon_hours": addon_hours, "addon_mints": addon_mints, "base_price": jQuery(".txtedtaddon_baseprice" + edtid).val(), "maxqty": jQuery(".txtedtaddon_maxqty" + edtid).val(), "image": image, "predefineimage": predefineimage, "predefineimage_title": predefine_image_title, "addon_service_description": tinymce.activeEditor.getContent("myedtaddon_title_desc"+ edtid), "booking_latency": jQuery("select.myedtaddon_booking_latency" + edtid).val(), "tags": jQuery(".myedtaddon_tags" + edtid).val(), "operationedit": 1},
         url: ajax_url + "service_addons_ajax.php",
         success: function (res) {
             jQuery(".mainheader_message").show();
@@ -3264,6 +3296,43 @@ jQuery(document).on("change", ".txtedtaddon_multipleqty", function (event) {
         event.preventDefault();
     }
 });
+
+jQuery(document).on("change", ".txtedtaddon_payment_choice", function (event) {
+    if (jQuery(this).prop("checked") == true) {
+        choice = "on";
+    } else {
+        choice = "off";
+    }
+    jQuery(".ct-loading-main").show();
+    jQuery.ajax({
+        type: "post",
+        data: {"id": jQuery(this).attr("data-id"), "payment": jQuery(this).attr("data-ct"), "choice": choice, "operationedit_payment": 1 },
+        url: ajax_url + "service_addons_ajax.php",
+        success: function (res) {
+            jQuery(".ct-loading-main").hide();
+        }
+    });
+    event.preventDefault();    
+});
+
+jQuery(document).on("change", ".txtedtaddon_attachment_choice", function (event) {
+    if (jQuery(this).prop("checked") == true) {
+        choice = "on";
+    } else {
+        choice = "off";
+    }
+    jQuery(".ct-loading-main").show();
+    jQuery.ajax({
+        type: "post",
+        data: {"id": jQuery(this).attr("data-id"), "attachment": jQuery(this).attr("data-ct"), "choice": choice, "operationedit_attachment": 1 },
+        url: ajax_url + "service_addons_ajax.php",
+        success: function (res) {
+            jQuery(".ct-loading-main").hide();
+        }
+    });
+    event.preventDefault();    
+});
+
 /* CODE FOR QTY RULES FOR ADDONS SERVICES */
 /* LOAD ALL RULES OF QTY */
 jQuery(document).on("click", ".addon-quantity-rules-btn", function () {

@@ -10,11 +10,17 @@ class cleanto_services_addon {
     public $maxqty;
     public $image;
     public $multipleqty;
+    public $pay_locally_status;
+    public $paypal_express_checkout_status;
+    public $stripe_payment_form_status;
     public $status;
     public $position;
     public $predefine_image;
     public $predefine_image_title;
     public $addon_service_description;
+    public $attachment;
+    public $mandatory;
+    public $booking_latency;
     public $units_id;
     public $tags;
     public $table_name = "ct_services_addon";
@@ -35,7 +41,7 @@ class cleanto_services_addon {
 
     public function update_services_addon() {
         $val=mysqli_real_escape_string($this->conn,$this->addon_service_description);
-        $query = "update `" . $this->table_name . "` set `addon_service_name`='" . $this->addon_service_name . "',`tags`='" . $this->tags . "',`base_price`='" . $this->base_price . "', `maxqty`='" . $this->maxqty . "', `image`='" . $this->image . "', `predefine_image`='" . $this->predefine_image . "', `predefine_image_title` ='" . $this->predefine_image_title . "',aduration='" . $this->duration . "',`addon_service_description`='" . $val . "' where `id`='" . $this->id . "'";
+        $query = "update `" . $this->table_name . "` set `addon_service_name`='" . $this->addon_service_name . "',`tags`='" . $this->tags . "',`base_price`='" . $this->base_price . "', `maxqty`='" . $this->maxqty . "', `image`='" . $this->image . "', `predefine_image`='" . $this->predefine_image . "', `predefine_image_title` ='" . $this->predefine_image_title . "',aduration='" . $this->duration . "',booking_latency='" . $this->booking_latency . "',`addon_service_description`='" . $val . "' where `id`='" . $this->id . "'";
         $result = mysqli_query($this->conn, $query);
         return $result;
     }
@@ -75,6 +81,55 @@ class cleanto_services_addon {
         return $result;
     }
 
+    public function change_payment($payment, $choice) {
+        $query = "update `" . $this->table_name . "` set `".$payment."`='" . $choice . "' where `id`='" . $this->id . "'";
+        $result = mysqli_query($this->conn, $query);
+        return $result;
+    }
+
+    public function update_services_addon_mysql($addon) {
+        $id = 34234;
+        unset($addon['id']);
+        if ($id && mysqli_fetch_row($this->getdataby_id($id))) {
+            $setPart = [];
+            foreach ($addon as $key => $value) {
+                if ($key == 'addon_service_description') {
+                    $value = mysqli_real_escape_string($this->conn, $value);
+                }
+                if (!$value) {
+                    $setPart[] = "`$key` = NULL";
+                } else {
+                    $setPart[] = "`$key` = '$value'";
+                }
+            }
+            $setClause = implode(', ', $setPart);
+            $query = "update `" . $this->table_name . "` set " . $setClause . " where `id`='" . $id . "'";
+            $result = mysqli_query($this->conn, $query);
+        } else {
+            $columns = array_keys($addon);
+            $setPartInsert = [];
+            foreach ($addon as $key => $value) {
+                if ($key == 'addon_service_description') {
+                    $value = mysqli_real_escape_string($this->conn, $value);
+                }
+                if (!$value) {
+                    $setPartInsert[] = "NULL";
+                } else {
+                    $setPartInsert[] = "'$value'";
+                }
+            }
+            $query = "insert into `" . $this->table_name . "` (" . implode('`,`', $columns) . ") values(" . implode(',', $setPartInsert) . ")";
+            $result = mysqli_query($this->conn, $query);
+        }
+        return $result;
+    }
+
+    public function change_attachment($attachment, $choice) {
+        $query = "update `" . $this->table_name . "` set `".$attachment."`='" . $choice . "' where `id`='" . $this->id . "'";
+        $result = mysqli_query($this->conn, $query);
+        return $result;
+    }
+
     /* Function for Read Only one data matched with Id */
 
     public function readone() {
@@ -104,6 +159,12 @@ class cleanto_services_addon {
 
     public function getdataby_serviceid() {
         $query = "select * from `" . $this->table_name . "` where `service_id` = " . $this->service_id . " ORDER BY `position`";
+        $result = mysqli_query($this->conn, $query);
+        return $result;
+    }
+
+    public function getaddonby_serviceid() {
+        $query = "select * from `" . $this->table_name . "` where `service_id` = " . $this->service_id . " ORDER BY `id`";
         $result = mysqli_query($this->conn, $query);
         return $result;
     }

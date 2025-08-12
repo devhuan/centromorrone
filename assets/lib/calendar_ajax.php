@@ -128,16 +128,6 @@ if (isset($_SESSION['staff_id_cal']) && $_SESSION['staff_id_cal'] != "") {
 $addon_id = $_POST['addon_id'];
 if (isset($_POST['get_calendar'])) {
     ?>
-    <script>
-        jQuery(document).ready(function () {
-            jQuery('.ct-tooltipss-ajax').tooltipster({
-                animation: 'grow',
-                delay: 20,
-                theme: 'tooltipster-shadow',
-                trigger: 'hover'
-            });
-        });
-    </script>
     <?php
     $t_zone_value = $setting->get_option('ct_timezone');
     $server_timezone = date_default_timezone_get();
@@ -154,6 +144,12 @@ if (isset($_POST['get_calendar'])) {
     } else {
         $timediffmis = str_replace('+', '', $timezonediff) * 60;
         $currDateTime_withTZ = strtotime("+" . $timediffmis . " minutes", strtotime(date('Y-m-d H:i:s')));
+    }
+
+    $booking_latency = 0;
+    if ($_POST['addon_id']) {
+        $addon = mysqli_fetch_assoc($objservice_addon->getdataby_id($_POST['addon_id']));
+        $booking_latency = $addon['booking_latency'];
     }
 
     $ct_max_advance_booking_time = $setting->get_option('ct_max_advance_booking_time');
@@ -185,7 +181,7 @@ if (isset($_POST['get_calendar'])) {
         <?php
         if ($currrmonthlink < $prevmonthlink) {
             ?>
-            <a data-istoday="N" class="previous-date previous_next" href="javascript:void(0)" data-next_month="<?php echo date("m", $prev_months); ?>" data-next_month_year="<?php echo date("Y", $prev_months); ?>"><i class="icon-arrow-left icons"></i></a>
+            <a data-istoday="N" class="previous-date previous_next" href="javascript:void(0)" data-next_month="<?php echo date("m", $prev_months); ?>" data-next_month_year="<?php echo date("Y", $prev_months); ?>" data-addon="<?php echo $addon_id ?>"><i class="icon-arrow-left icons"></i></a>
         <?php } else {
             ?>
             <a class="previous-date" href="javascript:void(0)" ><i class="icon-arrow-left icons"></i></a>
@@ -200,7 +196,7 @@ if (isset($_POST['get_calendar'])) {
             <a class="next-date" href="javascript:void(0)"><i class="icon-arrow-right icons"></i></a>
         <?php } else {
             ?>
-            <a data-istoday="N" class="next-date previous_next" href="javascript:void(0)" data-next_month="<?php echo date("m", $next_months); ?>" data-next_month_year="<?php echo date("Y", $next_months); ?>"><i class="icon-arrow-right icons"></i></a>
+            <a data-istoday="N" class="next-date previous_next" href="javascript:void(0)" data-next_month="<?php echo date("m", $next_months); ?>" data-next_month_year="<?php echo date("Y", $next_months); ?>" data-addon="<?php echo $addon_id ?>"><i class="icon-arrow-right icons"></i></a>
         <?php }
         ?>
     </div>
@@ -261,6 +257,10 @@ if (isset($_POST['get_calendar'])) {
                 $cur_dates = date('j-m-Y', $currDateTime_withTZ);
                 $s_date = strtotime($selected_dates);
                 $c_date = strtotime($cur_dates);
+                if ($booking_latency) {
+                    $newDate = date('j-m-Y', strtotime('+'.$booking_latency.' day', strtotime($cur_dates)));
+                    $c_date = strtotime($newDate);
+                }
 
                 /* COUNT TOTAL AVAILABLE SLOTS */
 
@@ -436,33 +436,13 @@ if (isset($_POST['get_calendar'])) {
                     <div class="ct-week hide_previous_dates"><?php echo $day; ?></div>
                     <?php
                 } else {
-                    $available_text = "";
-                    if ($s_date < $c_date) {
-                        
-                    } elseif ($available_time_slots <= 0) {
-                        $available_text = $label_language_values['none_available'];
-                    } else {
-                        $available_text = $available_time_slots . " " . $label_language_values['available'];
-                    }
                     ?>
-                    <div title="<?php
-                    if ($s_date < $c_date) {
-                        
-                    } else {
-                        echo $available_text;
-                    }
-                    ?>" class="<?php
-                         if ($s_date < $c_date) {
-                             
-                         } else {
-                             echo "ct-tooltipss-ajax";
-                         }
-                         ?> ct-week <?php
+                    <div  class="ct-week <?php
                          if ($c_date == $s_date) {
                              echo 'by_default_today_selected';
                          }
                          ?> <?php
-                         if ($s_date < $c_date) {
+                         if ($s_date < $c_date || ($addon_id && $available_time_slots <= 0)) {
                              echo 'hide_previous_dates';
                          } else {
                              echo 'selected_datess' . $selected_dates;
@@ -505,16 +485,6 @@ if (isset($_POST['get_calendar'])) {
 }
 if (isset($_POST['get_calendar_on_page_load'])) {
     ?>
-        <script>
-            jQuery(document).ready(function () {
-                jQuery('.ct-tooltipss-load').tooltipster({
-                    animation: 'grow',
-                    delay: 20,
-                    theme: 'tooltipster-shadow',
-                    trigger: 'hover'
-                });
-            });
-        </script>
         <?php
         $t_zone_value = $setting->get_option('ct_timezone');
         $server_timezone = date_default_timezone_get();
@@ -533,6 +503,12 @@ if (isset($_POST['get_calendar_on_page_load'])) {
             $currDateTime_withTZ = strtotime("+" . $timediffmis . " minutes", strtotime(date('Y-m-d H:i:s')));
         }
 
+        $booking_latency = 0;
+        if ($_POST['addon_id']) {
+            $addon = mysqli_fetch_assoc($objservice_addon->getdataby_id($_POST['addon_id']));
+            $booking_latency = $addon['booking_latency'];
+        }
+        
 
         list($year, $month, $iNowDay) = explode('-', date('Y-m-d', $currDateTime_withTZ));
         $ct_max_advance_booking_time = $setting->get_option('ct_max_advance_booking_time');
@@ -557,7 +533,7 @@ if (isset($_POST['get_calendar_on_page_load'])) {
         ?>
         <div class="calendar-header">
     <?php if ($monthssss != date('M')) { ?>
-                <a data-istoday="N" class="previous-date previous_next" href="javascript:void(0)" data-next_month="<?php echo date("m", $prev_months); ?>" data-next_month_year="<?php echo date("Y", $prev_months); ?>"><i class="icon-arrow-left icons"></i></a>
+                <a data-istoday="N" class="previous-date previous_next" href="javascript:void(0)" data-next_month="<?php echo date("m", $prev_months); ?>" data-next_month_year="<?php echo date("Y", $prev_months); ?>" data-addon="<?php echo $addon_id ?>"><i class="icon-arrow-left icons"></i></a>
                 <?php } else {
                     ?>
                 <a class="previous-date" href="javascript:void(0)" ><i class="icon-arrow-left icons"></i></a>
@@ -565,7 +541,7 @@ if (isset($_POST['get_calendar_on_page_load'])) {
     ?>
             <div class="calendar-title"><?php echo $label_language_values[strtolower(date("F", $date))]; ?></div>
             <div class="calendar-year"><?php echo date("Y", $date); ?></div>
-            <a data-istoday="N" class="next-date previous_next" href="javascript:void(0)" data-next_month="<?php echo date("m", $next_months); ?>" data-next_month_year="<?php echo date("Y", $next_months); ?>"><i class="icon-arrow-right icons"></i></a>
+            <a data-istoday="N" class="next-date previous_next" href="javascript:void(0)" data-next_month="<?php echo date("m", $next_months); ?>" data-next_month_year="<?php echo date("Y", $next_months); ?>" data-addon="<?php echo $addon_id ?>"><i class="icon-arrow-right icons"></i></a>
         </div>
         <div class="calendar-body">
             <div class="weekdays fl">
@@ -625,7 +601,10 @@ if (isset($_POST['get_calendar_on_page_load'])) {
                     $cur_dates = date('j-m-Y', $currDateTime_withTZ);
                     $s_date = strtotime($selected_dates);
                     $c_date = strtotime($cur_dates);
-
+                    if ($booking_latency) {
+                        $newDate = date('j-m-Y', strtotime('+'.$booking_latency.' day', strtotime($cur_dates)));
+                        $c_date = strtotime($newDate);
+                    }
                     /* COUNT TOTAL AVAILABLE SLOTS */
 
                     $t_zone_value = $setting->get_option('ct_timezone');
@@ -798,34 +777,13 @@ if (isset($_POST['get_calendar_on_page_load'])) {
                             $rows++;
                         }
                     }
-
-                    $available_text = "";
-                    if ($s_date < $c_date) {
-                        
-                    } elseif ($available_time_slots <= 0) {
-                        $available_text = $label_language_values['none_available'];
-                    } else {
-                        $available_text = $available_time_slots . " " . $label_language_values['available'];
-                    }
                     ?>
-                    <div  title="<?php
-                          if ($s_date < $c_date) {
-                              
-                          } else {
-                              echo $available_text;
-                          }
-                          ?>" class=" <?php
-                          if ($s_date < $c_date) {
-                              
-                          } else {
-                              echo "ct-tooltipss-load";
-                          }
-                          ?> ct-week <?php
+                    <div class="ct-week <?php
                           if ($c_date == $s_date) {
                               echo 'by_default_today_selected';
                           }
                           ?> <?php
-                    if ($s_date < $c_date) {
+                    if ($s_date < $c_date || ($available_time_slots <= 0 && $_POST['addon_id'])) {
                         echo 'hide_previous_dates';
                     } else {
                         echo 'selected_datess' . $selected_dates;
@@ -1202,7 +1160,7 @@ if (isset($_POST['get_calendar_on_page_load'])) {
                         </div>
                         <ul class="list-inline time-slot-ul br-5">
                             <?php
-                            if (mysqli_num_rows($week_day_avail_count) > 0) {
+                            if (mysqli_num_rows($week_day_avail_count) > 0 && $_POST['addon_id']) {
                                 if ($time_schedule['off_day'] != true && isset($time_schedule['slots']) && sizeof((array) $time_schedule['slots']) > 0 && $allbreak_counter != sizeof((array) $time_schedule['slots']) && $allofftime_counter != sizeof((array) $time_schedule['slots'])) {
                                     $gap_array = array();
                                     $gap_array_after = array();
@@ -1476,7 +1434,7 @@ if (isset($_POST['get_calendar_on_page_load'])) {
                             $allofftime_counter = 0;
                             $slot_counter = 0;
 
-                            if (mysqli_num_rows($week_day_avail_count) > 0) {
+                            if (mysqli_num_rows($week_day_avail_count) > 0 && $_POST['addon_id']) {
                                 $time_not_available = array();
                                 $time_not_available1 = array();
                                 $time_not_available2 = array();

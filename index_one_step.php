@@ -722,6 +722,39 @@ $selected_lang_label = array(
         #ct, a, h1, h2, h3, h4, h5, h6, span, p, div, label, li, ul{
             font-family: <?php echo $settings->get_option('ct_frontend_fonts'); ?>  !important;
         }
+        .upload-wrapper {
+            background: #fff;
+            padding: 10px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .upload-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .upload-label:hover {
+        background: #0056b3;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .file-name {
+            margin-top: 15px;
+            color: #333;
+            font-size: 14px;
+        }
     </style>
 
     <?php if ($imagepath != '') { ?>
@@ -1036,17 +1069,15 @@ $selected_lang_label = array(
     .cleanto a.ct-back-to-top:hover
 
     {
-
       background-color: " . $settings->get_option('ct_secondary_color') . " !important;
-
     }
 
-    
-
     .cleanto .calendar-body .dates .ct-week.by_default_today_selected{
+      background-color: #deeaf8 !important;
+    }
 
-      background-color: " . $settings->get_option('ct_primary_color') . " !important;
-
+    #ct .calendar-body .dates .ct-week.active {
+        background-color: #2d419a !important;
     }
 
     .cleanto .calendar-body .dates .ct-week.by_default_today_selected a span{
@@ -2118,9 +2149,24 @@ $selected_lang_label = array(
 
                         </div>
 
+
+
                         <!-- date and time slots end  -->
 
                         <!-- personal details -->
+                        <div class="upload-file-wrapper ct-common-box hide_allsss" style="display: none;">
+                            <div class="ct-list-header" style="float: none;">
+                                <h3 class="header3">Upload file to Caricare File</h3>
+                                <p class="ct-sub">Select files to Selezionare file</p>
+                            </div>
+                            <div class="upload-wrapper">
+                                <h6>Upload file (JPG, PNG, PDF)</h6>
+                                <label for="fileInput" class="upload-label">Select files</label>
+                                <input type="file" name="file" id="fileInput" accept=".jpg,.jpeg,.png,.pdf">
+                                <input type="hidden" id="fileInputText">
+                                <div class="file-name" id="fileName">Non ci sono ancora file</div>
+                            </div>
+                        </div>
 
                         <div class="ct-user-info-main ct-common-box existing_user_details hide_allsss mt-30">
 
@@ -2973,12 +3019,12 @@ if ($settings->get_option('ct_wallet_section') == 'on') {
                                     <label class="ct-error-msg ct-paypal-error" id="paypal_error"></label>
                                     <div class="ct-custom-radio ct-payment-methods f-l">
                                         <ul class="ct-radio-list ct-all-pay-methods">
-<?php if ($settings->get_option('ct_pay_locally_status') == 'on') { ?>
-                                                <li class="ct-md-3 ct-sm-6 ct-xs-12" id="pay-at-venue">
+                                            <?php if ($settings->get_option('ct_pay_locally_status') == 'on') { ?>
+                                                <li class="ct-md-3 ct-sm-6 ct-xs-12" id="pay-locally-venue">
                                                     <input type="radio" name="payment-methods" value="pay at venue" class="input-radio payment_gateway pay-cash" id="pay-cash"  checked="checked"/>
                                                     <label for="pay-cash" class="locally-radio"><span></span><?php echo $label_language_values['pay_locally']; ?></label>
                                                 </li>
-<?php } ?>  
+                                            <?php } ?>  
                                             <!-- bank transfer -->
 
                                             <?php if ($settings->get_option('ct_bank_transfer_status') == 'Y' && ($settings->get_option('ct_bank_name') != '' || $settings->get_option('ct_account_name') != '' || $settings->get_option('ct_account_number') != '' || $settings->get_option('ct_branch_code') != '' || $settings->get_option('ct_ifsc_code') != '' || $settings->get_option('ct_bank_description') != '')) { ?>
@@ -2988,7 +3034,7 @@ if ($settings->get_option('ct_wallet_section') == 'on') {
                                                 </li>
                                             <?php } ?>
                                             <?php if ($settings->get_option('ct_paypal_express_checkout_status') == 'on') { ?>
-                                                <li class="ct-md-3 ct-sm-6 ct-xs-12" id="pay-at-venue">
+                                                <li class="ct-md-3 ct-sm-6 ct-xs-12" id="paypal-at-venue">
                                                     <input type="radio" name="payment-methods" value="paypal" class="input-radio payment_gateway" id="pay-paypal" checked="checked" />
                                                     <label for="pay-paypal"  class="locally-radio"><span></span><?php echo $label_language_values['paypal']; ?><img src="<?php echo SITE_URL; ?>/assets/images/cards/paypal.png" class="ct-paypal-image" alt="PayPal"></label>
                                                 </li>

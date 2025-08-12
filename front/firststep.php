@@ -484,7 +484,7 @@ if (isset($_POST['add_to_cart']))
 				$json_array['special_offer_amount'] = $general->ct_price_format($special_off_amount, $symbol_position, $decimal);
 				$json_array['cart_tax'] = $general->ct_price_format($taxamount, $symbol_position, $decimal);
 				$json_array['cart_sub_total'] = $general->ct_price_format($total, $symbol_position, $decimal); /* calculation end */
-				
+				$json_array['addon'] = mysqli_fetch_assoc($services_addon->getdataby_id($_POST['units_id']));
 				$json_array['s_m_html'] = '<li class="update_qty_of_s_m_' . $method_name_without_space . '" data-service_id="' . $_POST['service_id'] . '" data-method_id="' . $_POST['method_id'] . '" data-units_id="' . $_POST['units_id'] . '"><i data-service_id="' . $_POST['service_id'] . '" data-units_id="' . $_POST['units_id'] . '"data-mnamee="' . $method_name_without_space . '" class="fa fa-times remove_item_from_cart cart_method_name" ></i><div class="ct-item ofh " ><span class="cart_method_name">' . $_POST['method_name'] . '</span> <span class="cart_qty"></span></div><div class="ct-price ofh cart_price">' . $general->ct_price_format_without_symbol($_POST['s_m_rate'], $decimal) . '</div></li>';
 				$cartss_counter = '';
 				$cartss_statuss = 'unit_not_added';
@@ -845,8 +845,8 @@ if (isset($_POST['add_to_cart']))
 			$json_array['method_name'] = $_POST['method_name'];
 			$json_array['method_name_without_space'] = $method_name_without_space;
 			$service_name = $booking->get_sername_byser_id($_POST['service_id']);
-				/* echo "<pre>";print_r($service_name); */
-				$json_array['s_m_html_ser_name'] = $service_name['title'];
+			$json_array['s_m_html_ser_name'] = $service_name['title'];
+			$json_array['addon'] = mysqli_fetch_assoc($services_addon->getdataby_id($_POST['units_id']));
 			$json_array['s_m_html'] = '<li class="update_qty_of_s_m_' . $method_name_without_space . '" data-service_id="' . $_POST['service_id'] . '" data-method_id="' . $_POST['method_id'] . '" data-units_id="' . $_POST['units_id'] . '"><i data-service_id="' . $_POST['service_id'] . '" data-units_id="' . $_POST['units_id'] . '"data-mnamee="' . $method_name_without_space . '" class="fa fa-times remove_item_from_cart cart_method_name" ></i><div class="ct-item ofh"><span class="cart_method_name">' . $_POST['method_name'] . '</span> - <span class="cart_qty">' . $_POST['s_m_qty'] . '</span></div><div class="ct-price ofh cart_price">' . $general->ct_price_format_without_symbol($_POST['s_m_rate'], $decimal) . '</div></li>';
 			$json_array['status'] = 'firstinsert';
 			$cartss_counter = '';

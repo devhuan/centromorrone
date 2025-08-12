@@ -179,9 +179,19 @@ if (isset($_POST['getservice_addons']))
                      <tr>
                         <td><label> Testo Preparazioni (usare tag html)</label></td>
                         <td>
-                           <div class="col-xs-12 np"><textarea id="myedtaddon_title_desc" class="form-control myedtaddon_titlenamedesc<?php echo $arrs['id']; ?>" ><?php echo $arrs['addon_service_description']; ?></textarea>                    </div>
+                           <div class="col-xs-12 np"><textarea id="myedtaddon_title_desc<?php echo $arrs['id']; ?>" class="form-control myedtaddon_titlenamedesc<?php echo $arrs['id']; ?>" ><?php echo $arrs['addon_service_description']; ?></textarea>                    </div>
                         </td>
                      </tr>
+                     <script>
+                     tinymce.init({
+                        selector: '#myedtaddon_title_desc<?php echo $arrs['id']; ?>',
+                        menubar: 'edit view format table tools help',
+                        forced_root_block: 'div',
+                        promotion: false,
+                        statusbar: false,
+                        license_key: 'gpl'
+                     });
+                     </script>
                      <tr>
                         <td><label> Tags Esami</label></td>
                         <td>
@@ -343,6 +353,98 @@ if (isset($_POST['getservice_addons']))
         {
             echo "";
         } ?> id="addon-multi-qty<?php echo $i; ?>" data-on="<?php echo $label_language_values['o_n']; ?>" data-off="<?php echo $label_language_values['off']; ?>" data-onstyle="primary" data-offstyle="default" />                             </label>                                    </td>
+                     </tr>
+                     <tr>
+                        <td><label>Booking latency</label></td>
+                        <td>
+                           <div class="form-group">
+                              <select name="ct_booking_latency" id="display_booking_latency" class="selectpicker myedtaddon_booking_latency<?php echo $arrs['id']; ?>" data-size="10" data-live-search="true" data-live-search-placeholder="<?php echo $label_language_values['search']; ?>" style="display: none;">
+                                 <option value="">Select Booking Latency</option>
+                                 <?php for ($x = 1; $x <= 30; $x++) { ?>
+                                    <option value="<?= $x ?>" <?php echo ($arrs['booking_latency'] == $x ? "selected" : ""); ?>><?= $x ?> days</option>
+                                 <?php } ?>
+                              </select>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>Attachment</td>
+                        <td>
+                           <div class="panel panel-default">
+                              <div class="panel-heading">
+                                 <h4 class="panel-title">
+                                    <span>Attachment</span>
+                                    <div class="ct-enable-disable-right ct-attachment pull-right">
+                                       <label class="ctoggle-attachment" for="attachment">
+                                          <input class='cta-toggle-checkbox txtedtaddon_attachment_choice' data-id="<?php echo $arrs['id']; ?>" data-ct="attachment" data-toggle="toggle" data-size="small" type='checkbox' name="attachment" <?php if ($arrs['attachment'] == 'on') {
+                                          echo 'checked';
+                                          } ?> id="attachment" data-on="Yes" data-off="No" data-onstyle='success' data-offstyle='danger' />
+                                       </label>
+                                    </div>
+                                 </h4>
+                              </div>
+                           </div>
+                           <div class="panel panel-default">
+                              <div class="panel-heading">
+                                 <h4 class="panel-title">
+                                    <span>Mandatory</span>
+                                    <div class="ct-enable-disable-right ct-mandatory pull-right">
+                                       <label class="ctoggle-mandatory" for="mandatory">
+                                          <input class='cta-toggle-checkbox txtedtaddon_attachment_choice' data-id="<?php echo $arrs['id']; ?>" data-ct="mandatory" data-toggle="toggle" data-size="small" type='checkbox' name="mandatory" <?php if ($arrs['mandatory'] == 'on') {
+                                          echo 'checked';
+                                          } ?> id="mandatory" data-on="Yes" data-off="No" data-onstyle='success' data-offstyle='danger' />
+                                       </label>
+                                    </div>
+                                 </h4>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>Patamenti Accepted</td>
+                        <td>
+                           <div class="panel panel-default ct-payment-methods">
+                              <div class="panel-heading">
+                                 <h4 class="panel-title">
+                                    <span><?php echo $label_language_values['pay_locally']; ?></span>
+                                    <div class="ct-enable-disable-right ct-pay-locally pull-right">
+                                    <label class="ctoggle-pay-locally" for="pay-locally">
+                                       <input class='cta-toggle-checkbox payment_choice txtedtaddon_payment_choice' data-id="<?php echo $arrs['id']; ?>" data-ct="pay_locally_status" data-toggle="toggle" data-size="small" type='checkbox' name="pay_locally_status" <?php if ($arrs['pay_locally_status'] == 'on') {
+                                       echo 'checked';
+                                       } ?> id="pay-locally" data-on="<?php echo $label_language_values['enable']; ?>" data-off="<?php echo $label_language_values['disable']; ?>" data-onstyle='success' data-offstyle='danger' />
+                                    </label>
+                                    </div>
+                                 </h4>
+                              </div>
+                           </div>
+                           <div class="panel panel-default ct-payment-methods">
+                              <div class="panel-heading">
+                                 <h4 class="panel-title">
+                                    <span><?php echo $label_language_values['paypal_express_checkout']; ?><img class="cta-paypal-img-payments" src="<?php echo SITE_URL; ?>/assets/images/paypal.png" /></span>
+                                    <div class="ct-enable-disable-right pull-right">
+                                    <label class="ctoggle-paypal-checkout" for="paypal-checkout">
+                                       <input class='cta-toggle-checkbox payment_choice txtedtaddon_payment_choice' data-id="<?php echo $arrs['id']; ?>" data-ct="paypal_express_checkout_status" data-toggle="toggle" data-size="small" type='checkbox' name="paypal_express_checkout_status" <?php if ($arrs['paypal_express_checkout_status'] == 'on') { echo 'checked';
+                                       } ?> id="paypal-checkout" data-on="<?php echo $label_language_values['enable']; ?>" data-off="<?php echo $label_language_values['disable']; ?>" data-onstyle='success' data-offstyle='danger' />
+                                    </label>
+                                    </div>
+                                 </h4>
+                              </div>
+                           </div>
+                           <div class="panel panel-default ct-payment-methods">
+                              <div class="panel-heading">
+                                 <h4 class="panel-title">
+                                    <span><?php echo $label_language_values['stripe']; ?> <?php echo $label_language_values['payment_form']; ?></span><img class="cta-authorize-img-payments" src="<?php echo SITE_URL; ?>/assets/images/stripe.jpg" />
+                                    <div class="ct-enable-disable-right pull-right">
+                                    <label class="ctoggle-stripe-payment-checkout" for="stripe-payment-checkout">
+                                       <input class="cta-toggle-checkbox payment_choice txtedtaddon_payment_choice" data-id="<?php echo $arrs['id']; ?>" data-ct="stripe_payment_form_status" data-toggle="toggle" data-size="small" type='checkbox' name="stripe_payment_form_status" <?php if ($arrs['stripe_payment_form_status'] == 'on') {
+                                       echo 'checked';
+                                       } ?> id="stripe-payment-checkout" data-on="<?php echo $label_language_values['enable']; ?>" data-off="<?php echo $label_language_values['disable']; ?>" data-onstyle='success' data-offstyle='danger' />
+                                    </label>
+                                    </div>
+                                 </h4>
+                              </div>
+                           </div>
+                        </td>
                      </tr>
                      <tr>
                         <td></td>
@@ -716,6 +818,7 @@ elseif (isset($_POST['operationedit']))
     $objservice_addon->image = $_POST['image'];
     $objservice_addon->tags = $_POST['tags'];
     $objservice_addon->predefine_image = $_POST['predefineimage'];
+    $objservice_addon->booking_latency = $_POST['booking_latency'];
     $objservice_addon->predefine_image_title = $_POST['predefineimage_title'];
     $objservice_addon->update_services_addon(); /* REMOVE UNSED IMAGES FROM FOLDER */
     $used_images = $objservice->get_used_images();
@@ -756,6 +859,20 @@ elseif (isset($_POST['operationedit_multipleqty']))
     $objservice_addon->id = $_POST['id'];
     $objservice_addon->multipleqty = $_POST['multipleqty'];
     $objservice_addon->changemultiple_qty();
+}
+elseif (isset($_POST['operationedit_payment']))
+{
+   $objservice_addon->id = $_POST['id'];
+   $payment = $_POST['payment'];
+   $choice = $_POST['choice'];
+   $objservice_addon->change_payment($payment, $choice);
+}
+elseif (isset($_POST['operationedit_attachment']))
+{
+   $objservice_addon->id = $_POST['id'];
+   $attachment = $_POST['attachment'];
+   $choice = $_POST['choice'];
+   $objservice_addon->change_attachment($attachment, $choice);
 }
 elseif (isset($_POST['operationdelete_addonprice']))
 {

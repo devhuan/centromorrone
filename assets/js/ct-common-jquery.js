@@ -863,6 +863,19 @@ jQuery(document).on("click", "#complete_bookings", function (e) {
         alert('SI PREGA DI SELEZIONARE UN ESAME PER PROCEDERE CON LA PRENOTAZIONE');
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return false;
+    } 
+    if (jQuery(".upload-file-wrapper").hasClass('upload-file-active')){
+        if (jQuery(".upload-file-wrapper").hasClass('mandatory')) {
+            const fileInput = jQuery('#fileInput')[0];
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Non ci sono ancora file.');
+                $('html, body').animate({
+                    scrollTop: $('.upload-file-wrapper').offset().top
+                }, 500);
+                return false;
+            }
+        }
     }
 
     if (guest_user_status == "on") {
@@ -1014,7 +1027,14 @@ jQuery(document).on("click", "#complete_bookings", function (e) {
     } else {
         var company_logo = site_url + 'assets/images/services/' + ct_company_logo;
     }
-    dataString = {existing_username: existing_username, existing_password: existing_password, password: password, firstname: firstname, lastname: lastname, email: email, phone: phone, user_address: user_address, user_zipcode: user_zipcode, user_city: user_city, user_state: user_state, address: address, zipcode: zipcode, city: city, state: state, notes: notes, vc_status: vc_status, p_status: p_status, contact_status: contact_status, payment_method: payment_method, staff_id: staff_id, amount: amount, discount: discount, taxes: taxes, partial_amount: partial_amount, net_amount: net_amount, booking_date_time: booking_date_time, frequently_discount: frequently_discount_id, frequent_discount_amount: frequent_discount_amount, coupon_code: coupon_code, user_coupon_val: user_coupon_val, cc_card_num: cc_card_num, cc_exp_month: cc_exp_month, cc_exp_year: cc_exp_year, cc_card_code: cc_card_code, guest_user_status: guest_user_status, recurrence_booking: recurrence_booking_1, current_amount: current_amount, is_login_user: is_login_user, special_days: special_days, action: "complete_booking"};
+
+    if (jQuery(".upload-file-wrapper").hasClass('upload-file-active')){
+        var file_upload = jQuery("#fileInputText").val();
+    } else {
+        var file_upload = '';
+    }
+    
+    dataString = {existing_username: existing_username, existing_password: existing_password, password: password, firstname: firstname, lastname: lastname, email: email, phone: phone, user_address: user_address, user_zipcode: user_zipcode, user_city: user_city, user_state: user_state, address: address, zipcode: zipcode, city: city, state: state, notes: notes, vc_status: vc_status, p_status: p_status, contact_status: contact_status, payment_method: payment_method, staff_id: staff_id, amount: amount, discount: discount, taxes: taxes, partial_amount: partial_amount, net_amount: net_amount, booking_date_time: booking_date_time, frequently_discount: frequently_discount_id, frequent_discount_amount: frequent_discount_amount, coupon_code: coupon_code, user_coupon_val: user_coupon_val, cc_card_num: cc_card_num, cc_exp_month: cc_exp_month, cc_exp_year: cc_exp_year, cc_card_code: cc_card_code, guest_user_status: guest_user_status, recurrence_booking: recurrence_booking_1, current_amount: current_amount, is_login_user: is_login_user, special_days: special_days, file_upload: file_upload, action: "complete_booking"};
     if (jQuery("#user_details_form").valid()) {
         if (jQuery("input[name='service-radio']:checked").val() != "on" && jQuery("#ct-service-0").val() != "off" && cart_counting == 1) {
             clicked = false;
@@ -1181,7 +1201,7 @@ jQuery(document).on("click", "#complete_bookings", function (e) {
                                                 {
                                                     method: 'POST',
                                                     headers: {'Content-Type': 'application/json'},
-                                                    body: JSON.stringify({stripe_payment_method_id: result.paymentMethod.id, customer_detail: form_data, existing_username: existing_username, existing_password: existing_password, password: password, firstname: firstname, lastname: lastname, email: email, phone: phone, user_address: user_address, user_zipcode: user_zipcode, user_city: user_city, user_state: user_state, address: address, zipcode: zipcode, city: city, state: state, notes: notes, vc_status: vc_status, p_status: p_status, contact_status: contact_status, payment_method: payment_method, staff_id: staff_id, amount: amount, discount: discount, taxes: taxes, partial_amount: partial_amount, net_amount: net_amount, booking_date_time: booking_date_time, frequently_discount: frequently_discount_id, frequent_discount_amount: frequent_discount_amount, coupon_code: coupon_code, user_coupon_val: user_coupon_val, cc_card_num: cc_card_num, cc_exp_month: cc_exp_month, cc_exp_year: cc_exp_year, cc_card_code: cc_card_code, guest_user_status: guest_user_status, recurrence_booking: recurrence_booking_1, current_amount: current_amount, is_login_user: is_login_user, special_days: special_days, action: "complete_booking"})
+                                                    body: JSON.stringify({stripe_payment_method_id: result.paymentMethod.id, customer_detail: form_data, existing_username: existing_username, existing_password: existing_password, password: password, firstname: firstname, lastname: lastname, email: email, phone: phone, user_address: user_address, user_zipcode: user_zipcode, user_city: user_city, user_state: user_state, address: address, zipcode: zipcode, city: city, state: state, notes: notes, vc_status: vc_status, p_status: p_status, contact_status: contact_status, payment_method: payment_method, staff_id: staff_id, amount: amount, discount: discount, taxes: taxes, partial_amount: partial_amount, net_amount: net_amount, booking_date_time: booking_date_time, frequently_discount: frequently_discount_id, frequent_discount_amount: frequent_discount_amount, coupon_code: coupon_code, user_coupon_val: user_coupon_val, cc_card_num: cc_card_num, cc_exp_month: cc_exp_month, cc_exp_year: cc_exp_year, cc_card_code: cc_card_code, guest_user_status: guest_user_status, recurrence_booking: recurrence_booking_1, current_amount: current_amount, is_login_user: is_login_user, special_days: special_days, file_upload: file_upload, action: "complete_booking"})
                                                 }).then(function (result) {
                                             result.json().then(function (result) {
                                                 handleServerResponse(result);
@@ -1216,7 +1236,7 @@ jQuery(document).on("click", "#complete_bookings", function (e) {
                                         fetch(front_url + "stripe_payment_process.php", {
                                             method: 'POST',
                                             headers: {'Content-Type': 'application/json'},
-                                            body: JSON.stringify({stripe_payment_intent_id: result.paymentIntent.id, existing_username: existing_username, existing_password: existing_password, password: password, firstname: firstname, lastname: lastname, email: email, phone: phone, user_address: user_address, user_zipcode: user_zipcode, user_city: user_city, user_state: user_state, address: address, zipcode: zipcode, city: city, state: state, notes: notes, vc_status: vc_status, p_status: p_status, contact_status: contact_status, payment_method: payment_method, staff_id: staff_id, amount: amount, discount: discount, taxes: taxes, partial_amount: partial_amount, net_amount: net_amount, booking_date_time: booking_date_time, frequently_discount: frequently_discount_id, frequent_discount_amount: frequent_discount_amount, coupon_code: coupon_code, user_coupon_val: user_coupon_val, cc_card_num: cc_card_num, cc_exp_month: cc_exp_month, cc_exp_year: cc_exp_year, cc_card_code: cc_card_code, guest_user_status: guest_user_status, recurrence_booking: recurrence_booking_1, current_amount: current_amount, is_login_user: is_login_user, special_days: special_days, action: "complete_booking"})
+                                            body: JSON.stringify({stripe_payment_intent_id: result.paymentIntent.id, existing_username: existing_username, existing_password: existing_password, password: password, firstname: firstname, lastname: lastname, email: email, phone: phone, user_address: user_address, user_zipcode: user_zipcode, user_city: user_city, user_state: user_state, address: address, zipcode: zipcode, city: city, state: state, notes: notes, vc_status: vc_status, p_status: p_status, contact_status: contact_status, payment_method: payment_method, staff_id: staff_id, amount: amount, discount: discount, taxes: taxes, partial_amount: partial_amount, net_amount: net_amount, booking_date_time: booking_date_time, frequently_discount: frequently_discount_id, frequent_discount_amount: frequent_discount_amount, coupon_code: coupon_code, user_coupon_val: user_coupon_val, cc_card_num: cc_card_num, cc_exp_month: cc_exp_month, cc_exp_year: cc_exp_year, cc_card_code: cc_card_code, guest_user_status: guest_user_status, recurrence_booking: recurrence_booking_1, current_amount: current_amount, is_login_user: is_login_user, special_days: special_days, file_upload: file_upload, action: "complete_booking"})
                                         }).then(function (confirmResult) {
                                             return confirmResult.json();
                                         }).then(handleServerResponse);
@@ -1815,6 +1835,48 @@ jQuery(document).on('click', '.ser_details', function (e) {
                 jQuery(".by_default_today_selected").addClass("active_today");
             }
             cleanto_sidebar_scroll();
+        }
+    });
+
+    jQuery.ajax({
+        type: "POST",
+        url: ajax_url + "addons_get_ajax.php",
+        data: {"addon_id":addon_id},
+        success: function (res) {
+            if (res) {
+                var data = jQuery.parseJSON(res);
+                if (data.pay_locally_status == 'on'){
+                    jQuery("#pay-locally-venue").show();
+                } else {
+                    jQuery("#pay-locally-venue").hide();
+                }
+                if (data.paypal_express_checkout_status == 'on'){
+                    jQuery("#paypal-at-venue").show();
+                } else {
+                    jQuery("#paypal-at-venue").hide();
+                }
+                if (data.stripe_payment_form_status == 'on'){
+                    jQuery("#card-payment").show();
+                    jQuery("#ct-pay-methods").show();
+                } else {
+                    jQuery("#card-payment").hide();
+                    jQuery("#ct-pay-methods").hide();
+                }
+    
+                if (data.attachment == 'on'){
+                    jQuery(".upload-file-wrapper").show();
+                    jQuery(".upload-file-wrapper").addClass('upload-file-active');
+                    if (data.mandatory == 'on') {
+                        jQuery(".upload-file-wrapper").addClass('mandatory');
+                    } else {
+                        jQuery(".upload-file-wrapper").removeClass('mandatory');
+                    }
+                } else {
+                    jQuery(".upload-file-wrapper").hide();
+                    jQuery(".upload-file-wrapper").removeClass('mandatory');
+                    jQuery(".upload-file-wrapper").removeClass('upload-file-active');
+                }
+            }
         }
     });
 
@@ -3701,6 +3763,7 @@ jQuery(document).on("click", ".previous_next,.today_btttn", function () {
     var ajax_url = ajaxurlObj.ajax_url;
     var month = jQuery(this).attr("data-next_month");
     var year = jQuery(this).attr("data-next_month_year");
+    var addon = jQuery(this).attr("data-addon");
     var todaybtn = jQuery(this).attr("data-istoday");
     var today_date = jQuery(this).attr("data-cur_dates");
     var ct_date_selected = jQuery(".ct-date-selected").text();
@@ -3709,7 +3772,7 @@ jQuery(document).on("click", ".previous_next,.today_btttn", function () {
     jQuery.ajax({
         type: "POST",
         url: ajax_url + "calendar_ajax.php",
-        data: {"month": month, "year": year, "get_calendar": 1},
+        data: {"month": month, "year": year, "addon_id": addon, "get_calendar": 1},
         success: function (res) {
             jQuery(".ct-loading-main").hide();
             jQuery(".cal_info").html(res);
@@ -3912,6 +3975,41 @@ jQuery(document).on("click", ".add_addon_in_cart_for_multipleqty", function () {
                     jQuery(".cart_total").html(cart_session_data.total_amount);
                     jQuery(".total_time_duration_text").html(cart_session_data.duration_text);
                 }
+
+                if (cart_session_data.addon) {
+                    var addon = cart_session_data.addon;
+                    if (addon.pay_locally_status == 'on'){
+                        jQuery("#pay-locally-venue").show();
+                    } else {
+                        jQuery("#pay-locally-venue").hide();
+                    }
+                    if (addon.paypal_express_checkout_status == 'on'){
+                        jQuery("#paypal-at-venue").show();
+                    } else {
+                        jQuery("#paypal-at-venue").hide();
+                    }
+                    if (addon.stripe_payment_form_status == 'on'){
+                        jQuery("#card-payment").show();
+                        jQuery("#ct-pay-methods").show();
+                    } else {
+                        jQuery("#card-payment").hide();
+                        jQuery("#ct-pay-methods").hide();
+                    }
+
+                    if (addon.attachment == 'on'){
+                        jQuery(".upload-file-wrapper").show();
+                        jQuery(".upload-file-wrapper").addClass('upload-file-active');
+                        if (addon.mandatory == 'on') {
+                            jQuery(".upload-file-wrapper").addClass('mandatory');
+                        } else {
+                            jQuery(".upload-file-wrapper").removeClass('mandatory');
+                        }
+                    } else {
+                        jQuery(".upload-file-wrapper").hide();
+                        jQuery(".upload-file-wrapper").removeClass('mandatory');
+                        jQuery(".upload-file-wrapper").removeClass('upload-file-active');
+                    }
+                }
             }
         });
     } else {
@@ -3957,6 +4055,26 @@ jQuery(document).on("click", ".add_addon_in_cart_for_multipleqty", function () {
                     jQuery(".frequent_discount").html(cart_session_data.frequent_discount);
                     jQuery(".cart_total").html(cart_session_data.total_amount);
                     jQuery(".total_time_duration_text").html(cart_session_data.duration_text);
+                }
+                if (cart_session_data.addon) {
+                    var addon = cart_session_data.addon;
+                    if (addon.pay_locally_status == 'on'){
+                        jQuery("#pay-locally-venue").show();
+                    } else {
+                        jQuery("#pay-locally-venue").hide();
+                    }
+                    if (addon.paypal_express_checkout_status == 'on'){
+                        jQuery("#paypal-at-venue").show();
+                    } else {
+                        jQuery("#paypal-at-venue").hide();
+                    }
+                    if (addon.stripe_payment_form_status == 'on'){
+                        jQuery("#card-payment").show();
+                        jQuery("#ct-pay-methods").show();
+                    } else {
+                        jQuery("#card-payment").hide();
+                        jQuery("#ct-pay-methods").hide();
+                    }
                 }
             }
         });
@@ -4617,6 +4735,33 @@ jQuery(document).on('change', ".payment_gateway", function () {
         jQuery("#payment-method-error").hide();
     } else {
         jQuery("#payment-method-error").show();
+    }
+});
+jQuery(document).on('change', "#fileInput", function () {
+    if (jQuery(".upload-file-wrapper").hasClass('upload-file-active')){
+        var ajax_url = ajaxurlObj.ajax_url;
+        var fileInput = jQuery("#fileInput")[0];
+        if (fileInput) {
+            jQuery(".ct-loading-main").show();
+            var formdata = new FormData();
+            formdata.append("image", fileInput.files[0]);
+            jQuery.ajax({
+                url: ajax_url + "upload_ajax.php",
+                type: "POST",
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    jQuery(".ct-loading-main").hide();
+                    jQuery('#fileName').text("Selected: " + data);
+                    jQuery('#fileInputText').val(data);
+                }
+            });
+            
+        } else {
+            jQuery('#fileName').text("Non ci sono ancora file");
+        }
     }
 });
 // jQuery(".ct-postal-input").on("keyup", function () {

@@ -35,7 +35,8 @@ class cleanto_dashboard{
 					`b`.`reject_reason`,
 					`oci`.`order_duration`,
 					`b`.`staff_ids`,
-                    `oci`.`recurring_id`
+                    `oci`.`recurring_id`,
+                    `b`.`booking_file`
 					FROM `ct_bookings` as `b`,`ct_services` as `s`,`ct_payments` as `p`,`ct_order_client_info` as `oci`
                     WHERE `b`.`service_id` = `s`.`id`
                     and `b`.`order_id` = `p`.`order_id`
@@ -155,7 +156,8 @@ and `b`.`method_unit_id` = `sa`.`id`";
 					`b`.`client_id`,
 					`b`.`order_id`,
 					`p`.`payment_method`,
-					`b`.`booking_status`
+					`b`.`booking_status`,
+					`b`.`booking_file`
 					FROM `ct_bookings` as `b`,`ct_services` as `s`,`ct_payments` as `p`
                     WHERE `b`.`service_id` = `s`.`id`
                     and `b`.`order_id` = `p`.`order_id`

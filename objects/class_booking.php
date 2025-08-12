@@ -35,11 +35,12 @@ class cleanto_booking{
 	public $conn;
 	public $offset;
 	public $limit;
-  public $friend_referral_code;
-  public $random_string;
-  public $coupon_limit;
-  public $coupon_used;
-  public $recurring_id;
+	public $friend_referral_code;
+	public $random_string;
+	public $coupon_limit;
+	public $coupon_used;
+	public $recurring_id;
+	public $booking_file;
 	public $table_name="ct_bookings";
 	public $tablename1="ct_services";
 	public $tablename2="ct_order_client_info";
@@ -54,7 +55,7 @@ class cleanto_booking{
 	*/
 
 	public function add_booking(){
-		$query="insert into `".$this->table_name."` (`id`,`order_id`,`client_id`,`order_date`,`booking_date_time`,`service_id`,`method_id`,`method_unit_id`,`method_unit_qty`,`method_unit_qty_rate`,`booking_status`,`reject_reason`,`reminder_status`,`lastmodify`,`read_status`,`staff_ids`,`gc_event_id`,`gc_staff_event_id`) values(NULL,'".$this->order_id."','".$this->client_id."','".$this->order_date."','".$this->booking_date_time."','".$this->service_id."','".$this->method_id."','".$this->method_unit_id."','".$this->method_unit_qty."','".$this->method_unit_qty_rate."','".$this->booking_status."','".$this->reject_reason."','0','".$this->lastmodify."','".$this->read_status."','".$this->staff_id."','','')";
+		$query="insert into `".$this->table_name."` (`id`,`order_id`,`client_id`,`order_date`,`booking_date_time`,`service_id`,`method_id`,`method_unit_id`,`method_unit_qty`,`method_unit_qty_rate`,`booking_status`,`reject_reason`,`reminder_status`,`lastmodify`,`booking_file`,`read_status`,`staff_ids`,`gc_event_id`,`gc_staff_event_id`) values(NULL,'".$this->order_id."','".$this->client_id."','".$this->order_date."','".$this->booking_date_time."','".$this->service_id."','".$this->method_id."','".$this->method_unit_id."','".$this->method_unit_qty."','".$this->method_unit_qty_rate."','".$this->booking_status."','".$this->reject_reason."','0','".$this->lastmodify."','".$this->booking_file."','".$this->read_status."','".$this->staff_id."','','')";
 		$result=mysqli_query($this->conn,$query);
 		$value=mysqli_insert_id($this->conn);	
 		return $value;

@@ -875,6 +875,12 @@ if(isset($_POST['getcleintdetailwith_updatereadstatus'])){
 	} else {
 		$booking_time = date("H:i", strtotime($clientdetail["booking_date_time"]));
 	}
+	$booking_file = $orderdetail[7];
+	if ($booking_file) {
+		$baseUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}/assets/images/exam/";
+		$booking_file = $baseUrl.$booking_file;
+		$booking_file = "<a href='".$booking_file."' download>Download Dile</a>";
+	}
 	$company_name = $settings->get_option("ct_email_sender_name");
 	$company_email = $settings->get_option("ct_email_sender_address");
 	$service_name = $clientdetail["title"];
@@ -2175,6 +2181,12 @@ elseif(isset($_POST['confirm_booking_cal'])){
 	} else {
 		$booking_time = date("H:i", strtotime($clientdetail['booking_date_time']));
 	}
+	$booking_file = $orderdetail[11];
+	if ($booking_file) {
+		$baseUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}/assets/images/exame/";
+		$booking_file = $baseUrl.$booking_file;
+		$booking_file = "<a href='".$booking_file."' download>Caricare File</a>";
+	}
 	$company_name = $settings->get_option('ct_email_sender_name');
 	$company_email = $settings->get_option('ct_email_sender_address');
 	$service_name = $clientdetail['title'];
@@ -2324,8 +2336,8 @@ elseif(isset($_POST['confirm_booking_cal'])){
 	}else{
 		$payment_status = ucwords($payment_status);
 	}
-	$searcharray = array('{{service_name}}', "{{service_description}}",'{{booking_date}}','{{business_logo}}','{{business_logo_alt}}','{{client_name}}','{{methodname}}','{{units}}','{{addons}}','{{client_email}}','{{phone}}','{{payment_method}}','{{vaccum_cleaner_status}}','{{parking_status}}','{{notes}}','{{contact_status}}','{{address}}','{{price}}','{{admin_name}}','{{firstname}}','{{lastname}}','{{app_remain_time}}','{{reject_status}}','{{company_name}}','{{booking_time}}','{{client_city}}','{{client_state}}','{{client_zip}}','{{company_city}}','{{company_state}}','{{company_zip}}','{{company_country}}','{{company_phone}}','{{company_email}}','{{company_address}}','{{admin_name}}');
-	$replacearray = array($service_name, $service_description, $booking_date , $business_logo, $business_logo_alt, $client_name,$methodname, $units, $addons,$client_email, $client_phone, $payment_status, $final_vc_status, $final_p_status, $client_notes, $client_status,$client_address,$price,$get_admin_name,$firstname,$lastname,'','',$admin_company_name,$booking_time,$client_city,$client_state,$client_zip,$company_city,$company_state,$company_zip,$company_country,$company_phone,$company_email,$company_address,$get_admin_name);
+	$searcharray = array('{{booking_file}}', '{{service_name}}', "{{service_description}}",'{{booking_date}}','{{business_logo}}','{{business_logo_alt}}','{{client_name}}','{{methodname}}','{{units}}','{{addons}}','{{client_email}}','{{phone}}','{{payment_method}}','{{vaccum_cleaner_status}}','{{parking_status}}','{{notes}}','{{contact_status}}','{{address}}','{{price}}','{{admin_name}}','{{firstname}}','{{lastname}}','{{app_remain_time}}','{{reject_status}}','{{company_name}}','{{booking_time}}','{{client_city}}','{{client_state}}','{{client_zip}}','{{company_city}}','{{company_state}}','{{company_zip}}','{{company_country}}','{{company_phone}}','{{company_email}}','{{company_address}}','{{admin_name}}');
+	$replacearray = array($booking_file, $service_name, $service_description, $booking_date , $business_logo, $business_logo_alt, $client_name,$methodname, $units, $addons,$client_email, $client_phone, $payment_status, $final_vc_status, $final_p_status, $client_notes, $client_status,$client_address,$price,$get_admin_name,$firstname,$lastname,'','',$admin_company_name,$booking_time,$client_city,$client_state,$client_zip,$company_city,$company_state,$company_zip,$company_country,$company_phone,$company_email,$company_address,$get_admin_name);
 	$emailtemplate->email_subject="Appointment Approved";
 	$emailtemplate->user_type="C";
 	$clientemailtemplate=$emailtemplate->readone_client_email_template_body();

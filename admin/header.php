@@ -455,6 +455,7 @@ if ($language_label_arr[1] != "" || $language_label_arr[3] != "" || $language_la
 
    // include(dirname(__FILE__) . "/setting.php");  
    ?>
+   <script src="<?php echo BASE_URL; ?>/assets/js/tinymce/tinymce.min.js?<?php echo time(); ?>" referrerpolicy="origin"></script>
    <script src="<?php echo BASE_URL; ?>/assets/js/ct-common-admin-jquery.js?<?php echo time(); ?>" type="text/javascript"></script>
    <script type='text/javascript'>
   window.smartlook||(function(d) {

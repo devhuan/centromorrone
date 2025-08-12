@@ -154,6 +154,10 @@ $objservice->conn = $conn; ?>
                     	<td><textarea id="ct-service-desc" class="form-control edtservicedesc<?php echo $arr['id']; ?>" ><?php echo $arr['description']; ?></textarea></td>	
                     </tr>
                     <tr>
+                        <td><label for="ct-service-desc">File Import</label></td>
+                    	<td><input type="file" id="file" name="file" accept=".xlsx"></td>	
+                    </tr>
+                    <tr>
                         <td><label for="ct-service-desc"><?php echo $label_language_values['service_image']; ?></label></td>
                     	<td>
                         <div class="ct-clean-service-image-uploader">	<?php if ($arr['image'] == '')
@@ -238,7 +242,7 @@ $objservice->conn = $conn; ?>
 </tr>
 <tr>
     <td></td>
-    <td><a id="" name="" data-id="<?php echo $arr['id']; ?>" class="btn btn-success ct-btn-width  edtservicebtn" ><?php echo $label_language_values['update']; ?></a><button type="reset" class="btn btn-default ct-btn-width ml-30"><?php echo $label_language_values['reset']; ?></button>
+    <td><a id="" name="" data-id="<?php echo $arr['id']; ?>" class="btn btn-success ct-btn-width edtservicebtn" ><?php echo $label_language_values['update']; ?></a><a data-id="<?php echo $arr['id']; ?>" class="btn btn-success ct-btn-width exportservicebtn ml-30">Export Esami</a><button type="reset" class="btn btn-default ct-btn-width ml-30"><?php echo $label_language_values['reset']; ?></button>
     </td>
     </tr>
     </tbody>
