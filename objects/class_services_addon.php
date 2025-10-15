@@ -88,7 +88,7 @@ class cleanto_services_addon {
     }
 
     public function update_services_addon_mysql($addon) {
-        $id = 34234;
+        $id = $addon['id'];
         unset($addon['id']);
         if ($id && mysqli_fetch_row($this->getdataby_id($id))) {
             $setPart = [];
